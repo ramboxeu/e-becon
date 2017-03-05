@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>E-becon</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body oncontextmenu="return false">
+    <nav class="red darken-1">
+      <a class="brand-logo center">E-becon</a>
+      <ul id="nav-mobile" class="right">
+        <li><a data-activates="achivments" class="show-on-large" id="achivments-btn"><i class="material-icons" id="dzwonek">notifications</i></a></li>
+      </ul>
+      <ul id="nav-mobile" class="left">
+        <li><a data-activates="menu" class="show-on-large" id="menu-btn"><i class="material-icons">menu</i></a></li>
+
+      </ul>
+    </nav>
+    <ul class="side-nav" id="menu">
+      <li><a href="" class="dropdown-button waves-effect" data-beloworigin="true" data-activates='playlist1'><i class="material-icons">queue_music</i>Playlista 1</a></li>
+      <ul id='playlist1' class='dropdown-content'>
+        <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/291178914&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe>
+      </ul>
+      <li><a href="" class="dropdown-button waves-effect" data-beloworigin="true" data-activates="playlist2"><i class="material-icons ">queue_music</i>Playlista 2</a></li>
+      <ul id='playlist2' class='dropdown-content'>
+        <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/291181641&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=fla&amp;show_user=true&amp;show_reposts=false"></iframe>
+      </ul>
+      <li><a href=""><i class="material-icons">get_app</i>Pobierz e-becon</a></li>
+      <li><a href=""><i class="material-icons">payment</i>Wesprzyj projekt</a></li>
+      <li><a class="waves-effect" onclick="closeSideNav()">← Zamknij</a></li>
+      <br>
+      <li style="font-family: monospace; font-size: 12px">❰❱ with ♥ by Mleczorsky & Rambox Company</li>
+    </ul>
+
+    <ul class="side-nav" id="achivments">
+      <li><a class="btn disabled"><i class="material-icons">star</i>Zbierz 10 złociszy</a></li>
+      <li><a class="btn disabled"><i class="material-icons">star</i>Zrób becon</a></li>
+      <li><a><i class="material-icons" id="notify-icon"></i></a><span id="notify-text"></span></li>
+    </ul>
+
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="col s12 center z-depth-1">
+          <span>Hiper Złocisze: </span><span id="hiper-zlocisze"></span>
+        </div>
+        <div class="col l4 m6 s12">
+          <span>Złocisze: </span> <span id="zlocisze"></span>
+          <br>
+          <a data-click="work" class="btn waves-effect waves-light red" id="pracuj" onclick="App.pracuj()">Pracuj</a>
+        </div>
+        <div class="item col l4 m6 s12">
+          <span>Becon: </span> <span id="becon"></span>
+          <br><br>
+          <a class="btn waves-effect waves-light red" id="upiecz-becon" onclick="App.upieczBecon()">Upiecz Becon</a>
+          <br>
+          <a class="btn waves-effect waves-light red" id="sprzedaj-becon" onclick="App.sprzedajBecon()">Sprzedaj Becon</a>
+        </div>
+        <div class="item col l4 m6 s12">
+          <span>Olej: </span> <span id="olej"></span>
+          <br><br>
+          <a class="btn waves-effect waves-light red" id="zrob-olej" onclick="App.zrobOlej()">Zrób Olej</a>
+          <br>
+          <br>
+        </div>
+        <div class="item col l4 m6 s12">
+          <span>Rzepak: </span> <span id="rzepak"></span>
+          <br>
+          <span>Zborze: </span><span id="zborze"></span>
+          <br>
+          <a class="btn waves-effect waves-light red" id="zbierz-rzepak" onclick="App.farmPole('rzepak')">Zbierz Rzepak</a>
+          <br>
+          <a class="btn waves-effect waves-light red" id="zbierz-zborze" onclick="App.farmPole('zborze')">Zbierz Zborze</a>
+
+        </div>
+
+        <div class="item col l4 m6 s12">
+          <span>Pola Rzepaku: </span> <span id="pole-rzepak"></span>
+          <br>
+          <span>Pola Zborza: </span><span id="pole-zborze"></span>
+          <br>
+          <a class="btn waves-effect waves-light red" id="kup-pole-rzepak" onclick="App.kupPole('rzepak')">kup pole rzepaku</a>
+          <br>
+          <a class="btn waves-effect waves-light red" id="kup-pole-zborze" onclick="App.kupPole('zborze')">kup pole zborza</a>
+
+        </div>
+        <div class="item col l4 m6 s12">
+          <span>Traktory Do Rzepaku: </span> <span id="traktor-rzepak"></span>
+          <br>
+          <span>Traktory do Zborza: </span><span id="traktor-zborze"></span>
+          <br>
+          <a class="btn waves-effect waves-light red" id="kup-traktor-r" onclick="App.kupTraktor('rzepak')">Kup Traktor Rzepaku</a>
+          <a class="btn waves-effect waves-light red" id="kup-traktor-z" onclick="App.kupTraktor('zborze')">Kup Traktor Zborza</a>
+        </div>
+        <div class="item col l4 m6 s12">
+          <span>Świnki: </span> <span id="swinki"></span>
+          <br>
+          <span>Kupione Świnki: </span><span id="kupione-swinki"></span>
+          <br>
+          <a class="btn waves-effect waves-light red" id="karm-swinke">Karm Świnke</a>
+          <br>
+          <a class="btn waves-effect waves-light red" id="kup-swinke">kup Świnke</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="update-alert" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>Nowa aktualizacja</h4>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-red btn-flat ">Ok, mam to</a>
+      </div>
+    </div>
+
+    <div id="preloader" class="modal modal-fixed-footer loader">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script>
+      $("#menu-btn").sideNav({
+        menuWidth: 300, // Default is 300
+        closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true // Choose whether you can drag to open on touch screens
+      });
+      $("#achivments-btn").sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true
+      })
+      $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: true, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: true, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+      });
+      $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+      });
+    </script>
+    <script>
+      function closeSideNav(){
+        $('.button-collapse').sideNav('hide');
+      }
+    </script>
+    <script src="module/statymodule.js"></script>
+    <script src="module/elemmodule.js"></script>
+    <script src="odule/pricemodule.js"></script>
+    <script src="module/appmodule.js"></script>
+    <script src="module/coremodule.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyCm60f-QfN7R6giUdkT7eunF92xUGWH-BI",
+        authDomain: "e-becon.firebaseapp.com",
+        databaseURL: "https://e-becon.firebaseio.com",
+        storageBucket: "e-becon.appspot.com",
+        messagingSenderId: "238273080743"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!--<script>
+document.addEventListener('DOMContentLoaded', function () {
+$('#preloader').modal('close');
+});
+</script>-->
+  </body>
+</html>
