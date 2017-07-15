@@ -186,6 +186,25 @@ const EBecon = (function(){
     }
   }
 
+  const sprawdzOsagniecia = function () {
+      //Złocisze 
+      switch (zasoby.zlocisze)
+      {
+          case 100:
+
+              break;
+          case 1000:
+              break;
+          case 10000:
+              break;
+          case 100000:
+              break;
+      }
+  }
+
+  //TODO: Login system
+  //TODO: Autosaves
+
   return {
     pracuj : pracuj,
     zbierzZborze : zbierzZborze,

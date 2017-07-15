@@ -324,3 +324,13 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+
+#Firebase files
+*.firebaserc
+manifest.webapp
+manifest.json
+firebase.json
+
+#VS solution file
+*.sln
