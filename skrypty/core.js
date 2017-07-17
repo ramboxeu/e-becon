@@ -176,19 +176,22 @@ const EBecon = (function(){
   }
 
   const kupSwinke = function () {
-    if(zasoby.zlocisze >= 10){
-      zasoby.kupioneSwinki++;
-      zasoby.zlocisze -= 10;
-      pokaz('zlocisze', 'zlocisze');
-      pokaz('kupione-swinki', 'kupioneSwinki');
-    } else {
+      if (zasoby.zlocisze >= 10) {
+          zasoby.kupioneSwinki++;
+          zasoby.zlocisze -= 10;
+          pokaz('zlocisze', 'zlocisze');
+          pokaz('kupione-swinki', 'kupioneSwinki');
+      } else {
 
-    }
+      }
   }
 
+  //TODO: Achiwments
+
+  //Test achwiments system
   const sprawdzOsagniecia = function () {
       //Złocisze 
-      switch (zasoby.zlocisze)
+      switch (zasoby.zlocisze) 
       {
           case 100:
 

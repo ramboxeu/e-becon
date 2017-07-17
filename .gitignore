@@ -334,3 +334,4 @@ firebase.json
 
 #VS solution file
 *.sln
+Web.config
