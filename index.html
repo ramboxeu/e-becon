@@ -6,13 +6,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="style/main.css" media="screen" title="no title">
   </head>
   <body>
-    <header>
+    <main>
+        <div class="container center">
+            <h1 style="font-family: monospace;">Prace w toku -</h1>        
+        </div>
+    </main>
+    <script>
+        const header = document.querySelector(`h1`);
+        const states = [`-`,`\\`,`|`,`/`];
+        let i = 0;
+        setInterval(() => {
+            header.innerText = `Prace w toku ${states[i]}`
+            i < 3 ? i++ : i = 0;
+        },50);
+    </script>
+    <!--<header>
       <nav>
         <div class="nav-wrapper red">
           <a href="#" class="brand-logo center">E-Becon</a>
@@ -22,11 +35,11 @@
           <a data-activates="menu" id="menu-btn" class="left"><i class="material-icons"></i></a>
         </div>
         <ul id="shop" class="side-nav fixed">
-          <p><a class="btn waves-effect waves-light red akcja" data-klik="kupPoleZ">kup pole zborza</a></p>
-          <p><a class="btn waves-effect waves-light red akcja" data-klik="kupPoleR">kup pole rzepaku</a></p>
-          <p><a class="btn waves-effect waves-light red akcja" data-klik="kupTraktorZ">kup traktor do zborza</a></p>
-          <p><a class="btn waves-effect waves-light red akcja" data-klik="kupTraktorR">kup traktor do rzepaku</a></p>
-          <p><a class="btn waves-effect waves-light red akcja" data-klik="kupSwinke">kup świnke</a></p>
+          <p><a class="btn waves-effect waves-light red akcja">kup pole zborza</a></p>
+          <p><a class="btn waves-effect waves-light red akcja">kup pole rzepaku</a></p>
+          <p><a class="btn waves-effect waves-light red akcja">kup traktor do zborza</a></p>
+          <p><a class="btn waves-effect waves-light red akcja">kup traktor do rzepaku</a></p>
+          <p><a class="btn waves-effect waves-light red akcja">kup świnke</a></p>
         </ul>
         <ul id="menu" class="side-nav">
 
@@ -51,7 +64,7 @@
               <div class="row">
                 <div class="col s12 m4 l4">
                   <span>Złocisze: </span><span id="zlocisze">0</span><br>
-                  <a class="btn waves-effect waves-light red akcja" data-klik="pracuj">pracuj</a>
+                  <a class="btn waves-effect waves-light red akcja" data-click="work">pracuj</a>
                 </div>
                 <div class="col s12 m4 l4">
                   <span>Zborze: </span><span id="zborze">0</span><br>
@@ -130,8 +143,8 @@
       };
       firebase.initializeApp(config);
     </script>
-    <script src="skrypty/materialize.js" charset="utf-8"></script>
-    <script src="skrypty/core.js" charset="utf-8"></script>
+    <script src="js/materialize.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>-->
     <!--<script type="text/javascript">
       klik();
     </script>-->
