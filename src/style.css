@@ -1,0 +1,48 @@
+header, main, footer {
+    padding-right: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-right: 0;
+    }
+}
+#cookie-info{
+    position: fixed;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;    
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.turning {
+    animation-name: truning-anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.close{
+    animation-name: close-anim;
+    animation-duration: 500ms;
+}
+
+@keyframes truning-anim {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes close-anim {
+    from {
+        transform: rotateX(0deg);
+        opacity: 100;   
+    }
+    to{
+        transform: rotateX(180deg);
+        opacity: 0;
+    }
+}
